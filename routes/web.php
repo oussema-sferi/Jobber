@@ -9,3 +9,7 @@ Route::get('/', function () {
 Route::get('/jobs', function () {
     return '<h1>Available Jobs</h1>';
 })->name('jobs');
+
+Route::get('/test-dep', function () {
+    return '<h1>Deployed</h1>';
+});
