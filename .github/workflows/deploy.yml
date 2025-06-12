@@ -17,23 +17,16 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
-      - name: Install NPM dependencies
-        run: npm ci
-
-      - name: Build assets for production
-        run: npm run build
-
       - name: Deploy to Server
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd ${{ secrets.APP_DIR }}
             git pull origin main
             composer install --no-interaction --prefer-dist --optimize-autoloader
+
+            # ✅ Install Node dependencies and build assets
+            npm ci
+            npm run build
 
             # Fix permissions for Laravel
             chown -R www-data:www-data storage bootstrap/cache database
