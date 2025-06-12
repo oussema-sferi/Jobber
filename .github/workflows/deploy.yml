@@ -23,6 +23,13 @@ jobs:
             cd ${{ secrets.APP_DIR }}
             git pull origin main
             composer install --no-interaction --prefer-dist --optimize-autoloader
+
+            # Fix permissions for Laravel
+            chown -R www-data:www-data storage bootstrap/cache database
+            chmod -R 775 storage bootstrap/cache
+            chmod 664 database/database.sqlite
+
+            # Run migrations and clear caches
             php artisan migrate --force
             php artisan config:clear
             php artisan config:cache

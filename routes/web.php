@@ -13,3 +13,7 @@ Route::get('/jobs', function () {
 Route::get('/test-dep', function () {
     return '<h1>Deployed successfully</h1>';
 });
+
+Route::get('/test-two', function () {
+    return '<h1>Tested</h1>';
+});
