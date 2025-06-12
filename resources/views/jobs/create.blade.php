@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">Create Job</x-slot>
-    <h1>Create New Job</h1>
+    <h1 class="text-3xl font-bold text-red-500">Create New Jobs</h1>
     <form action="/jobs" method="post">
         @csrf
         <div class="mb-4">
