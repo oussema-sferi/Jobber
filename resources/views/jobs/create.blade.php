@@ -1,10 +1,4 @@
-@extends('layout')
-
-@section('title')
-Create Job
-@endsection
-
-@section('content')
+<x-layout>
     <h1>Create New Job</h1>
     <form action="/jobs" method="post">
         @csrf
@@ -18,4 +12,4 @@ Create Job
         </div>
         <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Create Job</button>
     </form>
-@endsection
+</x-layout>
