@@ -15,10 +15,10 @@
 <x-header />
 @if(request()->is('/'))
     <x-hero />
+    <x-top-banner />
 @endif
-<main class="container mx-auto p-4 mt-4 bg-amber-100">
+<main class="container mx-auto p-4 mt-4">
     {{$slot}}
 </main>
-{{--<script src="{{asset('js/script.js')}}"></script>--}}
 </body>
 </html>
